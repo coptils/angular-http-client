@@ -1,0 +1,43 @@
+<div class="container custom-container-2">
+  
+    <!-- Show it when there is no countries -->
+    <div class="no-data text-center" *ngIf="Country.length == 0">
+      <p>There is no countries!</p>
+    </div>
+
+    <!-- Countries list table, it hides when there is no countries data -->
+    <div *ngIf="Country.length !== 0">
+      <h3 class="mb-3 text-center">Countries List</h3>
+  
+      <div class="form-group" style="padding: 10px 0px">
+        <input type="text" class="form-control" placeholder="Type to search" [(ngModel)]="data">
+      </div>
+
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Flag</th>
+              <th scope="col">Name</th>
+              <th scope="col">Capital</th>
+              <th scope="col">Region</th>
+              <th scope="col">Population</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of Country | filter:data">
+              <td><img src="{{country.flag}}" height="30" width="50" /></td>
+              <td>{{country.name}}</td>
+              <td>{{country.capital}}</td>
+              <td>{{country.region}}</td>
+              <td>{{country.population}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 *ngIf="(Country | filter:data)?.length <= 0">No country found!</h3>
+
+      </div>
+    </div>
+  
+  </div>
