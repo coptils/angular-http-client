@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class RestApiService {
 
-    // Define API
+    // This is the url that will get us all the countries with their details
     apiURL = 'https://restcountries.eu/rest/v2/all';
 
     constructor(private http: HttpClient) { }
